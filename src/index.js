@@ -1,13 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Register from './components/Register/Register';
+import Login from './components/Login/Login';
+import Profile from './components/Profile/Profile';
+import ModProfile from './components/ModProfile/ModProfile';
+import NotFound from './components/NotFound/NotFound';
+import axios from 'axios';
+
 import reportWebVitals from './reportWebVitals';
 
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+  <Routes>   
+     <Route path ='/' element={<Login/>} />
+     <Route path ='/Register' element={<Register/>} />
+     <Route path ='/Profile/:id' element={<Profile/>} />
+     <Route path ='/Profile/:id/Mod' element={<ModProfile/>} />
+     <Route path ='/*' element={<NotFound/>} />
+  </Routes>
+
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
